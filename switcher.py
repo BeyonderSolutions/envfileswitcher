@@ -1,3 +1,4 @@
+import sys
 import os
 from dotenv import load_dotenv
 
@@ -16,14 +17,16 @@ def switch_environment(environment):
 
     print(f'Switched to {environment} environment.')
 
-# def test():
-#     load_dotenv()
-#     var_1 = os.getenv("VAR1")
-#     var_2 = os.getenv("VAR2")
-#     print(var_1, var_2)
+def test():
+    load_dotenv()
+    var_1 = os.getenv("VAR1")
+    var_2 = os.getenv("VAR2")
+    print(var_1, var_2)
 
 if __name__ == "__main__":
-    environment = input('Environment: ')
-
-    switch_environment(environment)
-    # test()
+    if len(sys.argv) != 2:
+        print("Usage: switcher <environment>")
+    else:
+        environment = sys.argv[1]
+        switch_environment(environment)
+        # test()
