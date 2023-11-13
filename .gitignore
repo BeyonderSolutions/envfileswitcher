@@ -1,4 +1,6 @@
 .env*
+dist/
+switcher/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
