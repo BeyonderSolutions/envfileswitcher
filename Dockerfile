@@ -12,4 +12,4 @@ COPY . .
 
 EXPOSE 5000
 
-CMD ["pyinstaller", "switcher.py"]
+CMD ["pyinstaller", "enviro.py"]
