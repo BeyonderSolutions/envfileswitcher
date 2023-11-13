@@ -1,6 +1,5 @@
 FROM python:3.9-slim-buster
 
-# Install binutils package
 RUN apt-get update && apt-get install -y binutils
 
 WORKDIR /app

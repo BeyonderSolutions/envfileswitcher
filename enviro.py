@@ -1,13 +1,15 @@
-import sys
 import os
+import sys
+
 from dotenv import load_dotenv
 
-def switch_environment(environment):
-    env_file = f'.env.{environment}'
 
+def switch_environment(environment):
+    env_file = f".env.{environment}"
+    
     if not os.path.exists(env_file):
-        print(f"{env_file} does not exist.")
-        return
+        print(f"File '{env_file}' does not exist.")
+        sys.exit(1)
 
     with open(env_file, 'r') as source_file:
         env_contents = source_file.read()
@@ -24,9 +26,8 @@ def test():
     print(var_1, var_2)
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
+    args = sys.argv[1:]
+    if len(args) != 1:
         print("Usage: switcher <environment>")
-    else:
-        environment = sys.argv[1]
-        switch_environment(environment)
-        # test()
+        sys.exit(1)
+    switch_environment(args[0])
